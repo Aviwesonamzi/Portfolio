@@ -1,31 +1,55 @@
-import React, { useState, useEffect } from "react";
+import { NavLink } from 'react-router-dom';
 
-const Header = () => {
-  const [darkMode, setDarkMode] = useState(true);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
-  }, [darkMode]);
-
+function Header() {
   return (
-    <header className="flex justify-between items-center p-6 border-b border-gray-700">
-      <h1 className="text-2xl font-bold">My Portfolio</h1>
-      <nav className="space-x-4">
-        <a href="#about" className="hover:underline">About</a>
-        <a href="#projects" className="hover:underline">Projects</a>
-        <a href="#skills" className="hover:underline">Skills</a>
-        <a href="#resume" className="hover:underline">Resume</a>
-        <a href="#contact" className="hover:underline">Contact</a>
-      </nav>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="ml-4 px-3 py-1 border rounded hover:bg-gray-800"
-      >
-        {darkMode ? "Light" : "Dark"} Mode
-      </button>
+    <header className="bg-gray-800 shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-teal-400">Aviwe's Portfolio</h1>
+        <nav className="space-x-4">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'text-gray-300 hover:text-white transition'
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'text-gray-300 hover:text-white transition'
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'text-gray-300 hover:text-white transition'
+            }
+          >
+            Services
+          </NavLink>
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'text-gray-300 hover:text-white transition'
+            }
+          >
+            Portfolio
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'text-gray-300 hover:text-white transition'
+            }
+          >
+            Contact
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
-};
+}
 
 export default Header;

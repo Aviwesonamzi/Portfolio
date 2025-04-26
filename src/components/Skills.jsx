@@ -1,20 +1,18 @@
-import React from "react";
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js"];
-
 const Skills = () => (
-  <section id="skills">
-    <h2 className="text-3xl font-bold mb-4">Skills</h2>
-    <ul className="flex flex-wrap gap-4">
-      {skills.map((skill, i) => (
-        <li
-          key={i}
-          className="bg-blue-700 px-4 py-2 rounded-full text-white shadow"
-        >
-          {skill}
-        </li>
-      ))}
-    </ul>
+  <section className="text-white">
+    <h3 className="text-xl font-semibold text-teal-300 mb-2">Technical Skills</h3>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-200">
+      <ul className="list-disc list-inside">
+        <li>Python, C, JavaScript</li>
+        <li>React.js, Redux, HTML5, CSS, MySQL</li>
+        <li>Verilog, FPGA, Embedded Systems</li>
+      </ul>
+      <ul className="list-disc list-inside">
+        <li>Linux, Windows, macOS</li>
+        <li>SSH, DNS, Load Balancing, AWS CLI</li>
+        <li>System Admin, IT Infrastructure, Troubleshooting</li>
+      </ul>
+    </div>
   </section>
 );
 

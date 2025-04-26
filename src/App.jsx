@@ -1,25 +1,29 @@
-import React from "react";
-import Header from "./components/Header";
-import AboutMe from "./components/AboutMe";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import ResumeDownload from "./components/ResumeDownload";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Hero from "./components/Hero";
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import AboutMe from './components/AboutMe';
+import OurServices from './components/OurServices';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="bg-gray-900 text-white min-h-screen font-sans">
-      <Header />
-      <main className="px-6 py-8 space-y-20">
-        <AboutMe />
-        <Projects />
-        <Skills />
-        <ResumeDownload />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gray-900 text-white">
+        <Header />
+        <Hero />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutMe />} />
+          <Route path="/services" element={<OurServices />} />
+          <Route path="/portfolio" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
